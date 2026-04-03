@@ -21,6 +21,7 @@ public class ConfigReader {
         log.info("Configuration loaded for environment: {}", env);
     }
 
+    @SuppressWarnings("DoubleCheckedLocking")
     public static ConfigReader getInstance() {
         if (instance == null) {
             synchronized (ConfigReader.class) {

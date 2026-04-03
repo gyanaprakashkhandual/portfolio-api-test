@@ -1,31 +1,36 @@
 package com.framework.stepdefinitions;
 
+import java.util.List;
+import java.util.Map;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.testng.Assert;
+
 import com.aventstack.extentreports.Status;
 import com.framework.base.BaseTest;
 import com.framework.constants.EndpointConstants;
 import com.framework.pojo.User;
 import com.framework.reports.ExtentReportManager;
+
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.response.Response;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.testng.Assert;
-
-import java.util.List;
-import java.util.Map;
-
 import static io.restassured.RestAssured.given;
+import io.restassured.response.Response;
 
 public class UserStepDefinitions extends BaseTest {
 
     private static final Logger log = LogManager.getLogger(UserStepDefinitions.class);
 
+    public static Logger getLog() {
+        return log;
+    }
+
     private Response response;
-    private User     userPayload;
+    private User userPayload;
 
     @Given("the API base URL is configured")
     public void theAPIBaseURLIsConfigured() {
@@ -52,7 +57,7 @@ public class UserStepDefinitions extends BaseTest {
     @Given("I have the following user details")
     public void iHaveTheFollowingUserDetails(DataTable dataTable) {
         List<Map<String, String>> rows = dataTable.asMaps(String.class, String.class);
-        Map<String, String> data       = rows.get(0);
+        Map<String, String> data = rows.get(0);
         userPayload = new User(data.get("name"), data.get("email"), data.get("role"));
         log.info("User payload built: {}", userPayload);
     }

@@ -1,21 +1,23 @@
 package com.framework.reports;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.framework.config.ConfigReader;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 public class ExtentReportManager {
 
     private static ExtentReports extent;
     private static final ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
-    private ExtentReportManager() {}
+    private ExtentReportManager() {
+    }
 
+    @SuppressWarnings("DoubleCheckedLocking")
     public static ExtentReports getInstance() {
         if (extent == null) {
             synchronized (ExtentReportManager.class) {
@@ -28,9 +30,9 @@ public class ExtentReportManager {
     }
 
     private static void initReport() {
-        String timestamp    = LocalDateTime.now()
+        String timestamp = LocalDateTime.now()
                 .format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
-        String reportPath   = ConfigReader.getInstance()
+        String reportPath = ConfigReader.getInstance()
                 .get("report.path", "reports/extent/")
                 + "TestReport_" + timestamp + ".html";
 

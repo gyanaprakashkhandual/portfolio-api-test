@@ -11,11 +11,12 @@ import java.util.Map;
 
 public class JsonUtils {
 
-    private static final Logger log        = LogManager.getLogger(JsonUtils.class);
+    private static final Logger log = LogManager.getLogger(JsonUtils.class);
     private static final ObjectMapper mapper = new ObjectMapper();
-    private static final String TEST_DATA   = "src/test/resources/testdata/";
+    private static final String TEST_DATA = "src/test/resources/testdata/";
 
-    private JsonUtils() {}
+    private JsonUtils() {
+    }
 
     public static <T> T fromFile(String relativePath, Class<T> type) {
         File file = new File(TEST_DATA + relativePath);
@@ -30,7 +31,8 @@ public class JsonUtils {
     public static Map<String, Object> fileToMap(String relativePath) {
         File file = new File(TEST_DATA + relativePath);
         try {
-            return mapper.readValue(file, new TypeReference<Map<String, Object>>() {});
+            return mapper.readValue(file, new TypeReference<Map<String, Object>>() {
+            });
         } catch (IOException e) {
             log.error("Failed to parse file to map: {}", relativePath, e);
             throw new RuntimeException("JSON parse error: " + relativePath, e);
