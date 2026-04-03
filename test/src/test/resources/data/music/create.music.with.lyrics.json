@@ -6,5 +6,6 @@
   "releaseDate": "2020-03-20T00:00:00.000Z",
   "musicUrl": "https://cdn.music.com/blinding-lights.mp3",
   "duration": 200,
-  "coverImageUrl": "https://cdn.music.com/blinding-lights.jpg"
+  "coverImageUrl": "https://cdn.music.com/blinding-lights.jpg",
+  "lyrics": "I said ooh I'm blinded by the lights"
 }

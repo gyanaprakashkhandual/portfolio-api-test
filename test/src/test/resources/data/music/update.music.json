@@ -1,0 +1,10 @@
+{
+  "title": "Shape of You",
+  "artist": "Ed Sheeran",
+  "album": "Divide",
+  "genre": "Pop",
+  "releaseDate": "2017-01-06T00:00:00.000Z",
+  "musicUrl": "https://cdn.music.com/shape-of-you.mp3",
+  "duration": 234,
+  "coverImageUrl": "https://cdn.music.com/shape-of-you.jpg"
+}

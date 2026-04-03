@@ -1,4 +1,4 @@
-package com.framework.stepdefinitions;
+package com.framework.stepdefinitions.user;
 
 import java.util.List;
 import java.util.Map;
