@@ -10,7 +10,7 @@ import org.testng.Assert;
 import com.aventstack.extentreports.Status;
 import com.framework.base.BaseTest;
 import com.framework.constants.EndpointConstants;
-import com.framework.pojo.User;
+import com.framework.pojo.user.User;
 import com.framework.reports.ExtentReportManager;
 
 import io.cucumber.datatable.DataTable;
